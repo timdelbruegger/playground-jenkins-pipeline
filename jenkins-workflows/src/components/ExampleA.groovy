@@ -14,7 +14,7 @@ def start(){
 		if(this.pipeline == null){
 			throw new IllegalStateException("Needed utility class is not present!")
 		}
-//		pipeline.start(env.BUILD_NAME)
+		pipeline.start(env.BUILD_NAME)
 	}
 	echo "ExampleA workflow finished"
 }
