@@ -6,7 +6,7 @@ package components
 // "load" command in the bootstrap code. See Util.groovy
 // A description of the problem can be found at: http://bfischer.blogspot.de/2015/03/loading-workflow-scripts.html
 
-def pipeline = load "library/Pipeline.groovy"
+def pipeline = load "jenkins-workflows/src/library/Pipeline.groovy"
 
 def start(){
 	echo "Started ExampleA workflow"

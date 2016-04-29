@@ -1,4 +1,4 @@
-package components.library
+package library
 
 
 class Pipeline {
