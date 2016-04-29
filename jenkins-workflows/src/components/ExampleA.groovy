@@ -1,6 +1,5 @@
 package components
 
-import groovy.transform.Field
 
 // ATTENTION
 // We have to load all used classes statically. Otherwise they will not be picked up during
@@ -20,7 +19,8 @@ def start(){
 	echo "ExampleA workflow finished"
 }
 
-@Field
+
 def pipeline = load "jenkins-workflows/src/library/Pipeline.groovy"
+this.getBinding().setVariable("pipeline", pipeline)
 
 return this
