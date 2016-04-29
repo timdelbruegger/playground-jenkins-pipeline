@@ -36,7 +36,7 @@ class Util {
 				// see https://jenkinsci.github.io/job-dsl-plugin/#method/javaposse.jobdsl.dsl.DslFactory.workflowJob
 				cps{
 					script(workflowScript)
-					sandbox()
+//					sandbox()
 				}
 			}
 		}
