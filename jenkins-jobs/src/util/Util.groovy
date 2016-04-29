@@ -15,7 +15,7 @@ class Util {
 	static createComponentJob(dslFactory, String name){
 		
 		// TODO: check that such a file exists
-		def workflowScriptFilename = 'workflow/Component'+name + '.groovy'
+		def workflowScriptFilename = 'jenkins-jobs/src/workflow/Component'+name + '.groovy'
 		def workflowScriptFile = new File(workflowScriptFilename)
 		
 		if( !workflowScriptFile.exists()){
