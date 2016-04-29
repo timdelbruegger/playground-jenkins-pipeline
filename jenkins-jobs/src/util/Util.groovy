@@ -57,7 +57,7 @@ class Util {
 			def pipeline
 			node{
 			  echo "bootstrap function begins for component ${env.JOB_NAME}"
-			  git url: 'https://https://github.com/timdelbruegger/playground-jenkins-pipeline.git'
+			  git url: 'https://github.com/timdelbruegger/playground-jenkins-pipeline.git'
 			  pipeline = load "jenkins-workflows/src/components/${env.JOB_NAME}.groovy"
 			  echo "bootstrap function end"
 			}
