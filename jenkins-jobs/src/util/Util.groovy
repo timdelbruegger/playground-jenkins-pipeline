@@ -26,7 +26,7 @@ class Util {
 		def componentJob = dslFactory.workflowJob(name){
 			concurrentBuild()
 			description("This Job builds and tests component: " + name)
-			jdk(1.8)
+			jdk("Java 8")
 			definition {
 //				triggers {
 //					scm('# triggered by post-commit hook')
