@@ -1,8 +1,7 @@
 package library
 
-
-class Pipeline {
-	def start(String componentName){
-		echo "Pipeline started for component " + componentName
-	}
+def start(String componentName){
+	echo "Pipeline started for component " + componentName
 }
+
+return this
