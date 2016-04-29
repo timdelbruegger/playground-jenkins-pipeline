@@ -12,6 +12,7 @@ def start(){
 	echo "Started ExampleA workflow"
 	node{
 		echo "ExampleA reached first node"
+		pipeline.start()
 	}
 	echo "ExampleA workflow finished"
 }
