@@ -1,3 +1,3 @@
 import util.Util
 
-def myJob = Util.createComponentJob('exampleJob')
+def myJob = Util.createComponentJob(this, 'exampleJob')
