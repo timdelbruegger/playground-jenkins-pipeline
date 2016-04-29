@@ -16,21 +16,27 @@ class Util {
 		
 		// TODO: check that such a file exists
 		def workflowScriptFilename = 'jenkins-jobs/src/workflow/Component'+name + '.groovy'
-		def workflowScriptFile = new File(workflowScriptFilename)
+		def workflowScript = readFileFromWorkspace(workflowScriptFilename)
+//		def workflowScriptFile = new File(workflowScriptFilename)
 		
-		if( !workflowScriptFile.exists()){
-			throw new IllegalArgumentException("Cannot create a Job with name " + name + " because there is no workflow script for it: " + workflowScriptFilename)
-		}
+//		if( !workflowScriptFile.exists()){
+//			throw new IllegalArgumentException("Cannot create a Job with name " + name + " because there is no workflow script for it: " + workflowScriptFilename)
+//		}
 		
 		def componentJob = dslFactory.workflowJob(name){
+			concurrentBuild()
+			description("This Job builds and tests component: " + name)
+			jdk(1.8)
 			definition {
 //				triggers {
 //					scm('# triggered by post-commit hook')
 //				}
+				
+				// see https://jenkinsci.github.io/job-dsl-plugin/#method/javaposse.jobdsl.dsl.DslFactory.workflowJob
 				cps{
-					script(readFileFromWorkspace(workflowScriptFilename))
+					script(workflowScript)
 					sandbox()
-				}
+				}			
 			}
 		}
 		
