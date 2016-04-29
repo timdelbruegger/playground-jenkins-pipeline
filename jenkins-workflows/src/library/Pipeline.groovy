@@ -1,6 +1,0 @@
-package library
-
-
-class Pipeline {
-
-}
