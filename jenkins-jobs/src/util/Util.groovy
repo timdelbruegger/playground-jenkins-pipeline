@@ -46,7 +46,7 @@ class Util {
 
 	/**
 	 * This script will be part of the Job definition of every component build job. It loads the pipeline script that belongs to the component to build and launches the build process.
-	 * <br>
+	 * <br><br>
 	 * Some may ask: why do we need this? The problem is that the workflowScriptFromScm step cannot load multiple files. The "load" command, on the other hand, can initialize more than one file, if the other files are referenced in the static initialization of the file we load.
 	 * @param componentName The name of the component to build. There must be a groovy script in "jenkins-workflows/src/components/" with this name
 	 * @return the generated workflow / pipeline plugin script (groovy) as String.
@@ -56,9 +56,9 @@ class Util {
 			// load the workflow script
 			def pipeline
 			node{
-			  echo "bootstrap function begins for component ${componentName}"
+			  echo "bootstrap function begins for component ${env.JOB_NAME}"
 			  git url: 'https://https://github.com/timdelbruegger/playground-jenkins-pipeline.git'
-			  pipeline = load "jenkins-workflows/src/components/${componentName}.groovy"
+			  pipeline = load "jenkins-workflows/src/components/${env.JOB_NAME}.groovy"
 			  echo "bootstrap function end"
 			}
 			
