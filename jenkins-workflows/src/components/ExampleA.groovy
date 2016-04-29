@@ -1,6 +1,5 @@
 package components
 
-import groovy.transform.Field
 
 
 // ATTENTION
@@ -8,14 +7,14 @@ import groovy.transform.Field
 // "load" command in the bootstrap code. See Util.groovy
 // A description of the problem can be found at: http://bfischer.blogspot.de/2015/03/loading-workflow-scripts.html
 
-@Field
-def pipeline = load "jenkins-workflows/src/library/Pipeline.groovy"
+//@Field
+//def pipeline = load "jenkins-workflows/src/library/Pipeline.groovy"
 
 def start(){
 	echo "Started ExampleA workflow"
 	node{
 		echo "ExampleA reached first node"
-		pipeline.start(env.BUILD_NAME)
+//		pipeline.start(env.BUILD_NAME)
 	}
 	echo "ExampleA workflow finished"
 }
