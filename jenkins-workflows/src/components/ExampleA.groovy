@@ -1,6 +1,6 @@
 package components
 
 
-class ComponentA {
+class ExampleA {
 
 }

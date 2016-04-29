@@ -1,6 +1,0 @@
-package workflow
-
-
-class ComponentExampleA {
-
-}
