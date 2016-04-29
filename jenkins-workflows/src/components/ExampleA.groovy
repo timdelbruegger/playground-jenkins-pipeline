@@ -6,21 +6,28 @@ package components
 // "load" command in the bootstrap code. See Util.groovy
 // A description of the problem can be found at: http://bfischer.blogspot.de/2015/03/loading-workflow-scripts.html
 
+// load Util.groovy into variable "util"
+loadLibraryClass("Util")
+
 def start(){
 	echo "Started ExampleA workflow"
 	node{
 		echo "ExampleA reached first node"
 		
-		if(this.pipeline == null){
+		if(this.util == null){
 			throw new IllegalStateException("Needed utility class is not present!")
 		}
-		pipeline.start(env.BUILD_NAME)
+		util.doSomething(env.BUILD_NAME)
 	}
 	echo "ExampleA workflow finished"
 }
 
 
-def pipeline = load "jenkins-workflows/src/library/Pipeline.groovy"
-this.getBinding().setVariable("pipeline", pipeline)
+def loadLibraryClass(String name){
+	def libraryPath = "jenkins-workflows/src/library/"
+	def libraryClassFile = libraryPath+name+".groovy"
+	def libraryObject = load libraryClassFile
+	this.getBinding().setVariable(name.toLowerCase(), libraryObject)
+}
 
 return this
