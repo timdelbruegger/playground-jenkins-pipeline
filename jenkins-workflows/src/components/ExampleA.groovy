@@ -15,7 +15,7 @@ def start(){
 	echo "Started ExampleA workflow"
 	node{
 		echo "ExampleA reached first node"
-		pipeline.start()
+		pipeline.start(env.BUILD_NAME)
 	}
 	echo "ExampleA workflow finished"
 }
