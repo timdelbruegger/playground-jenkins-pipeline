@@ -7,7 +7,7 @@ package components
 // A description of the problem can be found at: http://bfischer.blogspot.de/2015/03/loading-workflow-scripts.html
 
 // load Util.groovy into variable "util"
-loadLibraryClass("Util")
+this.util = loadLibraryClass("Util")
 
 def start(){
 	echo "Started ExampleA workflow"
@@ -22,12 +22,15 @@ def start(){
 	echo "ExampleA workflow finished"
 }
 
-
+/**
+ * Loads a groovy script and returns the created object (the script should return this)
+ */
 def loadLibraryClass(String name){
 	def libraryPath = "jenkins-workflows/src/library/"
 	def libraryClassFile = libraryPath+name+".groovy"
 	def libraryObject = load libraryClassFile
-	this.getBinding().setVariable(name.toLowerCase(), libraryObject)
+	
+	return libraryObject
 }
 
 return this
