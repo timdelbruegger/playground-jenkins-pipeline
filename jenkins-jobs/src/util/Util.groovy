@@ -16,7 +16,7 @@ class Util {
 		
 		// TODO: check that such a file exists
 		def workflowScriptFilename = 'jenkins-jobs/src/workflow/Component'+name + '.groovy'
-		def workflowScript = readFileFromWorkspace(workflowScriptFilename)
+		def workflowScript = dslFactory.readFileFromWorkspace(workflowScriptFilename)
 //		def workflowScriptFile = new File(workflowScriptFilename)
 		
 //		if( !workflowScriptFile.exists()){
